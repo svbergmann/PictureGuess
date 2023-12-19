@@ -22,19 +22,15 @@ class MainActivity : AppCompatActivity() {
                 val imgUri = data?.data
                 binding.selectedImage.setImageURI(imgUri)
                 binding.tableLayout.removeAllViews()
-                binding.addBoxes.setOnClickListener {
-                    createBoxes()
-                }
+                createBoxes()
             }
         }
 
     private fun createBoxes() {
-        val imageHeight = binding.selectedImage.height
-        val imageWidth = binding.selectedImage.width
         val numberOfBoxesH = 5
         val numberOfBoxesV = 5
-        val boxHeight = imageHeight / numberOfBoxesV
-        val boxWidth = imageWidth / numberOfBoxesH
+        val boxHeight = binding.selectedImage.height / numberOfBoxesV
+        val boxWidth = binding.selectedImage.width / numberOfBoxesH
         for (row in 0..numberOfBoxesV) {
             val tableRow = TableRow(this)
             for (column in 0..numberOfBoxesH) {
